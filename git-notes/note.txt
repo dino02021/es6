@@ -1,3 +1,11 @@
 git config --global user.name "Yabi Su"
 git config --global user.email dino0202@gmail.com
 
+git config -l
+
+q > quit :git
+
+-----------------------
+
+git remote add origin https://github.com/dino02021/es6.git
+git push -u origin master
