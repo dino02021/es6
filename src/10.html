@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script>
+        const addBall = b => {
+            return `<div class="ball" style="
+                        position: absolute;
+                        top: ${b.x}px;
+                        left: ${b.y}px;
+                        width: ${b.w || 60}px;
+                        height: ${b.w || 60}px;
+                        line-height: ${b.w || 60}px;
+                        border-radius: 50%;
+                        text-align: center;
+                        background-color: ${b.bcolor || "blue"};
+                        color: ${b.color || "yellow"};
+                        font-family: '微軟正黑體';
+                        font-weight: 600;
+                        font-size: 20px;
+                    ">${b.txt || 0}</div>`;
+        }
+
+        info.innerHTML += addBall({
+            x: 50,
+            y: 50,
+            w: 100,
+            bcolor: "red",
+            color: "white",
+            txt: 666666,
+        });
+        info.innerHTML += addBall({})
+        info.innerHTML += addBall({
+            x: 120,
+            y: 120,
+            w: 150,
+            bcolor: "green",
+            color: "aqua",
+            txt: 77777,
+        });
+        info.innerHTML += addBall({
+            x: 230,
+            y: 230,
+            w: 200,
+            bcolor: "grey",
+            color: "aquamarine",
+            txt: 888888,
+        });
+    </script>
+</body>
+
+</html>
