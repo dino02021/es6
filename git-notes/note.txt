@@ -1,0 +1,3 @@
+git config --global user.name "Yabi Su"
+git config --global user.email dino0202@gmail.com
+
