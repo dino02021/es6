@@ -9,12 +9,25 @@
 </head>
 
 <body>
+
+
     <script>
-        for (let i = 0; i < 10; i++) {
-            setTimeout(function () {
-                console.log(i);
-            }, 500 * i)
+        const person = {
+            name: "john",
+            age: 30,
+            gender: "male",
         }
+
+        const { name, age, gender } = person;
+
+        console.log(name, age, gender);
+
+        person2 = {
+            ...person,
+            test: 666,
+        }
+
+        console.log(person2);
     </script>
 </body>
 

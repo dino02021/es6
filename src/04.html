@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        const myTarget = {
+            name: "john",
+            age: 25,
+            ageIncrease: function () {
+                this.age++;
+            }
+        }
+
+        const myHandler = {
+            get: function (target, prop) {
+                return target[prop];
+            },
+            set: function (target, prop, value) {
+                if (prop === "age" && isNaN(value / 1)) {
+                    throw new ReferenceError("not a num")
+                }
+                else {
+                    target[prop] = value;
+                }
+            }
+        }
+
+        const proxy = new Proxy(myTarget, myHandler);
+
+        console.log(proxy.age);
+
+        proxy.age = "30";
+
+        console.log(proxy.age);
+    </script>
+</body>
+
+</html>

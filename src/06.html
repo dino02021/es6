@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        const p1 = {
+            name: "john",
+            age: 30,
+            gender: "male",
+            data: {
+                d1: 6,
+                d2: 9,
+            }
+        }
+
+        const p2 = p1;
+        const p3 = { ...p1 }
+        const p4 = {};
+        for (let i in p1) {
+            p4[i] = p1[i];
+        }
+
+        const p5 = JSON.parse(JSON.stringify(p1));
+
+        p1.name = "eric";
+        p1.data.d1 = 77;
+
+        console.log(p1);
+        console.log(p2);
+        console.log(p3);
+        console.log(p4);
+        console.log(p5);
+    </script>
+</body>
+
+</html>
