@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script>
+        const map = new Map();
+
+        const ar = [
+            {
+                name: "john",
+                age: 20,
+            },
+            {
+                name: "bill",
+                age: 28,
+            },
+            {
+                name: "ball",
+                age: 28,
+            },
+            {
+                name: "eric",
+                age: 25,
+            },
+            {
+                name: "Bob",
+                age: 24,
+            }
+        ];
+
+        const myClick = function (event) {
+            console.log(map.get(event.target));
+        }
+
+        const info = document.querySelector("#info");
+
+        for (const i of ar) {
+            const el = document.createElement("div");
+            el.className = "ball";
+            el.style.position = "absolute";
+            el.style.width = "60px";
+            el.style.height = "60px";
+            el.style.lineHeight = "60px";
+            el.style.backgroundColor = "rgb(" + Math.random() * 255 + "," + Math.random() * 255 + "," + Math.random() * 255 + ")";
+            el.style.borderRadius = "50%";
+            el.style.textAlign = "center";
+            el.style.color = "white";
+            el.style.top = Math.random() * 400 + "px";
+            el.style.left = Math.random() * 300 + "px";
+            el.innerHTML = i.name;
+
+            info.appendChild(el);
+            map.set(el, i)
+        }
+
+        info.addEventListener("click", myClick);
+    </script>
+</body>
+
+</html>

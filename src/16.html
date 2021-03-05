@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myt,
+        #myt td {
+            border: 1px solid slateblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <select id="sel">
+        <option value="nameAsc">姓名升冪</option>
+        <option value="nameDesc">姓名降冪</option>
+        <option value="ageAsc">年齡升冪</option>
+        <option value="ageDesc">年齡降冪</option>
+    </select>
+
+    <table id="myt"></table>
+
+    <script>
+        const ar = [
+            {
+                name: "john",
+                age: 20,
+            },
+            {
+                name: "bill",
+                age: 28,
+            },
+            {
+                name: "ball",
+                age: 28,
+            },
+            {
+                name: "eric",
+                age: 25,
+            },
+            {
+                name: "Bob",
+                age: 24,
+            }
+        ];
+
+        const render = () => {
+            document.querySelector("#myt").innerHTML = ar.map(el => {
+                return `<tr>
+                            <td>${el.name}</td>
+                            <td>${el.age}</td>
+                        <tr>`;
+            }).join("");
+        }
+
+        const sort = {
+            "nameAsc": (a, b) => {
+                return a.name.toLowerCase() < b.name.toLowerCase() ? 1 : -1
+            },
+            "nameDesc": (a, b) => {
+                return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+            },
+            "ageAsc": (a, b) => {
+                return a.age - b.age;
+            },
+            "ageDesc": (a, b) => {
+                return b.age - a.age;
+            },
+        }
+
+        render();
+
+        var sel = document.querySelector("#sel");
+        sel.addEventListener("change", function () {
+            ar.sort(sort[sel.value]);
+            render();
+        });
+    </script>
+</body>
+
+</html>
