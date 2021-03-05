@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const ar = [
+            {
+                name: "john",
+                age: 20,
+            },
+            {
+                name: "bill",
+                age: 28,
+            },
+            {
+                name: "ball",
+                age: 28,
+            },
+            {
+                name: "eric",
+                age: 25,
+            },
+            {
+                name: "Bob",
+                age: 24,
+            }
+        ];
+
+        console.log(ar.sort((a, b) => {
+            return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+        }));
+    </script>
+</body>
+
+</html>
