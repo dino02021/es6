@@ -1,5 +1,3 @@
-let f = name => {
-    console.log(`Hello, ${name}`);
-}
+let f = name => `Hello, ${name}`;
 
-f("David");
+document.querySelector("#info").innerHTML = f("David");
