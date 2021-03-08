@@ -44,8 +44,6 @@
             console.log(map.get($(event.target)[0]));
         }
 
-        const info = document.querySelector("#info");
-
         for (const i of ar) {
             const el = $(`<div>${i.name}</div>`);
             el.css({
@@ -61,7 +59,7 @@
                 left: Math.random() * 300,
             });
 
-            info.appendChild(el[0]);
+            $("#info").append(el[0]);
             map.set(el[0], i)
         }
 
