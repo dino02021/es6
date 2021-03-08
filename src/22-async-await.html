@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function myPromise() {
+            return new Promise((resolve, reject) => {
+                const rnd = 1000 + Math.floor(Math.random() * 1000);
+
+                setTimeout(() => {
+                    resolve(rnd);
+                }, rnd);
+            });
+        };
+
+        (async function () {
+            console.log("A1", await myPromise());
+            console.log("A2", await myPromise());
+            console.log("A3", await myPromise());
+        })();
+
+        (async () => {
+            console.log("B1", await myPromise());
+            console.log("B2", await myPromise());
+            console.log("B3", await myPromise());
+        })();
+
+    </script>
+</body>
+
+</html>
