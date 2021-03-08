@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        const map = new Map();
+
+        const ar = [
+            {
+                name: "john",
+                age: 20,
+            },
+            {
+                name: "bill",
+                age: 28,
+            },
+            {
+                name: "ball",
+                age: 28,
+            },
+            {
+                name: "eric",
+                age: 25,
+            },
+            {
+                name: "Bob",
+                age: 24,
+            }
+        ];
+
+        const myClick = function (event) {
+            console.log(map.get($(event.target)[0]));
+        }
+
+        const info = document.querySelector("#info");
+
+        for (const i of ar) {
+            const el = $(`<div>${i.name}</div>`);
+            el.css({
+                position: "absolute",
+                width: 60,
+                height: 60,
+                lineHeight: "60px",
+                backgroundColor: `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`,
+                borderRadius: "50%",
+                textAlign: "center",
+                color: "white",
+                top: Math.random() * 400,
+                left: Math.random() * 300,
+            });
+
+            info.appendChild(el[0]);
+            map.set(el[0], i)
+        }
+
+        $("#info").on("click", myClick);
+    </script>
+</body>
+
+</html>
